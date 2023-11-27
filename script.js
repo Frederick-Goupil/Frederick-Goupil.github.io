@@ -61,3 +61,17 @@ function resetBoard() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+
+// Code Ajouter
+
+let reset = document.getElementById("reset"); // Trouve le bouton Reset
+
+reset.addEventListener("click", function () { // pour chaque carte, on la retourne, on la reactive, et on lui donne une nouvelle position
+  cards.forEach(card => { 
+    card.classList.remove("flip");
+    card.addEventListener("click", flipCard);
+    let randomPos = Math.floor(Math.random() * 12);
+    card.style.order = randomPos;
+  })
+})
